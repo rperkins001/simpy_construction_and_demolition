@@ -1,7 +1,5 @@
-import pytest
 import simpy
 from src.demolition_project import DemolitionProject
-#from src.resource_allocation import ResourceAllocator
 
 def test_demolition_project():
     env = simpy.Environment()
@@ -41,6 +39,7 @@ def test_demolition_project():
 
     project = DemolitionProject(env, name, num_workers, num_trucks, equipment_specs, traffic_flow_specs, processing_time_range, storage_capacity)
     project.setup()
-    env.run(until=project.run())
+    simulation_time = 30*4
+    env.run(until=simulation_time)
 
 test_demolition_project()

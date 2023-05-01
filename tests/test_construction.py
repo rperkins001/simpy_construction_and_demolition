@@ -1,4 +1,3 @@
-import pytest
 import simpy
 from src.construction_project import ConstructionProject
 
@@ -41,6 +40,7 @@ def test_construction_project():
 
     project = ConstructionProject(env, name, num_workers, num_trucks, equipment_specs, traffic_flow_specs, processing_time_range, storage_capacity)
     project.setup()
-    env.run(until=project.run())
+    simulation_time = 30* 8
+    env.run(until=simulation_time)  # pass project.run() directly to env.run()
 
 test_construction_project()

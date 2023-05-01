@@ -32,6 +32,8 @@ class ConstructionProject(BaseProject):
         self.material_processor.start()
         self.environmental_impact_assessor = EnvironmentalImpactAssessor(self.env, self.resource_allocator, self.traffic_simulator, self.material_processor)
         self.environmental_impact_assessor.start()
+        self.simulation_time = 0 # add a variable to track the simulation time
+
 
     def run(self):
         """Run the simulation for the construction project."""
@@ -47,9 +49,9 @@ class ConstructionProject(BaseProject):
             yield self.env.process(self.daily_tasks(day))
 
         total_simulation_time = num_days * hours_per_day
-        yield self.env.timeout(total_simulation_time)
-
+        self.simulation_time += total_simulation_time # update the simulation time
         print(f"Construction project {self.name} completed.")
+        
 
     def daily_tasks(self, day):
         # Implement daily tasks for the construction project
@@ -60,6 +62,7 @@ class ConstructionProject(BaseProject):
 
         yield workers_request & trucks_request
         yield self.env.timeout(8)  # Simulate 8 hours of work
+        self.simulation_time += 8 # update the simulation time
         print(f"Day {day} completed.")
 
         self.resource_allocator.release_resources(workers_request)

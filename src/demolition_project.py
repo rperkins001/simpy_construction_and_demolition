@@ -22,7 +22,6 @@ class DemolitionProject(BaseProject):
 
     def setup(self):
         super().setup()
-        # Set up resources specific to the demolition project
         self.resources["workers"] = simpy.Resource(self.env, capacity=self.num_workers)
         self.resources["trucks"] = simpy.Resource(self.env, capacity=self.num_trucks)
         self.resources["fuel_station"] = simpy.Resource(self.env, capacity=1)  # Add fuel station resource
@@ -38,9 +37,8 @@ class DemolitionProject(BaseProject):
         """Run the simulation for the demolition project."""
         print(f"Starting demolition project: {self.name}")
 
-        # Run the project for a specified number of days (e.g., 30 days)
         num_days = 30
-        hours_per_day = 8
+        hours_per_day = 4
 
         for day in range(num_days):
             print(f"Day {day}:")

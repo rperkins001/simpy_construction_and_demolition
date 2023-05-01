@@ -29,7 +29,7 @@ simpy_architecture_01/
 ├── README.md
 └── requirements.txt
 
-src/: Contains the core simulation modules, such as construction_project.py, demolition_project.py, equipment_utilization.py, resource_allocation.py, traffic_flow_simulator.py, and environmental_impact.py.
-examples/: Provides example scripts demonstrating how to use the simulation modules for construction and demolition projects.
-tests/: Includes test scripts for the different components of the simulation models.
+**src/**: Contains the core simulation modules, such as construction_project.py, demolition_project.py, equipment_utilization.py, resource_allocation.py, traffic_flow_simulator.py, and environmental_impact.py.
+**examples/**: Provides example scripts demonstrating how to use the simulation modules for construction and demolition projects.
+**tests/**: Includes test scripts for the different components of the simulation models.
 
